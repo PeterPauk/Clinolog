@@ -21,7 +21,6 @@ nav{
     h2{
         color: $blue;
         font-size: 1.7rem;
-        
     }
     ul{
         display: flex;
@@ -36,6 +35,9 @@ nav{
                 color: black;
                 font-weight: 600;
                 font-size: 1.2rem;
+                &:hover{
+                    color: $pink
+                }
             }
         }
     }
@@ -74,11 +76,14 @@ nav{
     div{
         display: flex;
         flex-direction: column;
-        padding: 3rem 1rem 2rem;
+        padding: 3rem 0rem 2rem;
         border-radius: 15px;
         background-color: rgb(81, 81, 219);
         height: 450px;
         text-align: center;
+        position: relative;
+        transition: bottom 0.4s;
+        bottom: 0px;
         background: rgb(161,187,244);
         background: linear-gradient(36deg, rgba(161,187,244,1) 0%, rgba(190,213,255,1) 15%, rgba(213,219,255,1) 72%, rgba(156,188,255,1) 100%);
         -webkit-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.58);
@@ -88,10 +93,28 @@ nav{
             font-size: 1.7rem;
             margin-bottom: 2rem;
             font-weight: 600;
+            color: $blue;
         }
         p{
             font-size: 1.3rem;
+            font-weight: 200;
+            color: rgb(46, 46, 46);
+            padding: 0 1.7rem;
         }
+        img{
+            width: 455px;
+            height: 350px;
+            rotate: 0deg;
+            opacity: 85%;
+            filter: saturate(100%);
+        }
+        &:hover{
+            bottom: 10px;
+
+        }
+        
+    
     }
+
 
 }

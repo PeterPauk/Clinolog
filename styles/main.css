@@ -18,7 +18,7 @@ nav {
   grid-template-columns: 1fr 5fr;
 }
 nav h2 {
-  color: rgb(29, 29, 31);
+  color: rgb(39, 39, 196);
   font-size: 1.7rem;
 }
 nav ul {
@@ -36,6 +36,9 @@ nav ul li a {
   color: black;
   font-weight: 600;
   font-size: 1.2rem;
+}
+nav ul li a:hover {
+  color: rgb(185, 13, 99);
 }
 
 .landing-photo {
@@ -72,11 +75,14 @@ nav ul li a {
 .info-section div {
   display: flex;
   flex-direction: column;
-  padding: 3rem 1rem 2rem;
+  padding: 3rem 0rem 2rem;
   border-radius: 15px;
   background-color: rgb(81, 81, 219);
   height: 450px;
   text-align: center;
+  position: relative;
+  transition: bottom 0.4s;
+  bottom: 0px;
   background: rgb(161, 187, 244);
   background: linear-gradient(36deg, rgb(161, 187, 244) 0%, rgb(190, 213, 255) 15%, rgb(213, 219, 255) 72%, rgb(156, 188, 255) 100%);
   box-shadow: inset -2px -1px 36px 0px rgba(82, 117, 255, 0.58);
@@ -85,7 +91,21 @@ nav ul li a {
   font-size: 1.7rem;
   margin-bottom: 2rem;
   font-weight: 600;
+  color: rgb(39, 39, 196);
 }
 .info-section div p {
   font-size: 1.3rem;
+  font-weight: 200;
+  color: rgb(46, 46, 46);
+  padding: 0 1.7rem;
+}
+.info-section div img {
+  width: 455px;
+  height: 350px;
+  rotate: 0deg;
+  opacity: 85%;
+  filter: saturate(100%);
+}
+.info-section div:hover {
+  bottom: 10px;
 }/*# sourceMappingURL=main.css.map */
