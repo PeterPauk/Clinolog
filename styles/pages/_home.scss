@@ -1,0 +1,97 @@
+@import "../abstracts/variables";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Sen", sans-serif;
+}
+
+header{
+    background: rgb(161,187,244);
+    background: linear-gradient(0deg, rgba(161,187,244,1) 0%, rgba(190,213,255,1) 35%, rgba(213,219,255,1) 86%, rgba(199,217,255,1) 100%);
+}
+
+nav{
+    width: 80%;
+    padding: 1.5rem 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    h2{
+        color: $blue;
+        font-size: 1.7rem;
+        
+    }
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        list-style: none;
+        li{
+            margin-left: 2rem;
+            a{
+                text-decoration: none;
+                color: black;
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+.landing-photo{
+    display: flex;
+    justify-content: start;
+    margin: 2.5rem auto 7rem;
+    border: none;
+    border-radius: 15px;
+    width: 80%;
+    height: 550px;
+    background: linear-gradient(45deg, rgb(255, 255, 255), rgba(14, 85, 156, 0.568)), url("../img/pic.png");
+    background-position: right;
+    background-size: cover;
+    h1{
+        text-align: center;
+        font-size: 3rem;
+        color: black;
+        margin: auto 5rem;
+        width: 40%;
+        font-weight: 600;
+        span{
+            color: $pink;
+        }
+    }
+}
+
+.info-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5rem;
+    width: 80%;
+    margin: 0 auto 3rem;
+    div{
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 1rem 2rem;
+        border-radius: 15px;
+        background-color: rgb(81, 81, 219);
+        height: 450px;
+        text-align: center;
+        background: rgb(161,187,244);
+        background: linear-gradient(36deg, rgba(161,187,244,1) 0%, rgba(190,213,255,1) 15%, rgba(213,219,255,1) 72%, rgba(156,188,255,1) 100%);
+        -webkit-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.58);
+        -moz-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.58);
+        box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.58);
+        h3{
+            font-size: 1.7rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        p{
+            font-size: 1.3rem;
+        }
+    }
+
+}
