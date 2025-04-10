@@ -28,7 +28,7 @@
             <h1>Improving healthcare. <span>Together.</span></h1>
         </div>
 
-        <div class="info-section">
+        <section class="info-section">
             <div>
                 <h3>Organized System</h3>
                 <p>Easily categorize diseases based on body systems (e.g., nervous, respiratory, digestive) to streamline your workflow and focus on relevant cases.</p>
@@ -44,7 +44,28 @@
                 <p>Attach your own notes, observations, or medical insights to each disease entry, ensuring all relevant information is easily accessible for future reference.</p>
                 <img src="./img/image3x1.png" alt="">
             </div>
-        </div>
+        </section>
+
+        <section class="start-section">
+            <div class="main-div">
+                <img src="./img/doctor.jpg" alt="">
+                <div>
+                    <h3>Start making the world a better place</h3>
+                    <a href="#">Begin</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
+            <p>2025 Clinolog. All rights reserved.</p>
+    </footer>
     </main>
 </body>
 

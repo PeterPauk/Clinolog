@@ -73,12 +73,14 @@ nav ul li a:hover {
   margin: 0 auto 3rem;
 }
 .info-section div {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 3rem 0rem 2rem;
+  padding: 2rem 0rem 2rem;
   border-radius: 15px;
   background-color: rgb(81, 81, 219);
   height: 450px;
+  max-width: 460px;
   text-align: center;
   position: relative;
   transition: bottom 0.4s;
@@ -100,12 +102,83 @@ nav ul li a:hover {
   padding: 0 1.7rem;
 }
 .info-section div img {
-  width: 455px;
-  height: 350px;
+  width: 100%;
+  height: 24rem;
   rotate: 0deg;
   opacity: 85%;
   filter: saturate(100%);
+  position: relative;
+  bottom: 15px;
 }
 .info-section div:hover {
   bottom: 10px;
+}
+
+.start-section {
+  margin: 8rem 0 0;
+  background-color: aqua;
+  padding: 5rem 0;
+  background: rgb(13, 13, 13);
+  background: linear-gradient(87deg, rgb(13, 13, 13) 0%, rgb(66, 73, 84) 32%, rgb(80, 81, 97) 64%, rgb(29, 35, 46) 100%);
+}
+.start-section .main-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9rem;
+  width: 60%;
+  margin: 0 auto;
+}
+.start-section .main-div img {
+  box-shadow: -8px 7px 0px 3px rgb(186, 13, 100);
+  border-radius: 25px;
+}
+.start-section .main-div div {
+  text-align: center;
+  padding: 4rem 2rem 0rem;
+  height: 350px;
+  width: 300px;
+  border-radius: 25px;
+  position: relative;
+  top: 1rem;
+  box-shadow: 11px 12px 0px -2px rgb(255, 255, 255);
+  background: rgb(196, 23, 110);
+  background: linear-gradient(22deg, rgb(196, 23, 110) 27%, rgb(181, 15, 135) 58%, rgb(218, 115, 197) 100%, rgb(251, 145, 204) 100%);
+}
+.start-section .main-div div h3 {
+  font-size: 1.7rem;
+  margin-bottom: 4rem;
+  color: white;
+}
+.start-section .main-div div a {
+  width: 5rem;
+  padding: 0.5rem 3rem;
+  background-color: white;
+  height: 3rem;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: rgb(185, 13, 99);
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: 0.5s;
+}
+.start-section .main-div div a:hover {
+  border: 2px solid white;
+  background-color: rgb(185, 13, 99);
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 0 2rem;
+  background: rgb(161, 187, 244);
+  background: linear-gradient(0deg, rgb(161, 187, 244) 0%, rgb(190, 213, 255) 35%, rgb(213, 219, 255) 86%, rgb(199, 217, 255) 100%);
+}
+footer a {
+  text-decoration: none;
+  margin: 0 1rem;
+  color: black;
+}
+footer p {
+  margin: 1rem 0;
 }/*# sourceMappingURL=main.css.map */

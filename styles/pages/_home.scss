@@ -74,12 +74,14 @@ nav{
     width: 80%;
     margin: 0 auto 3rem;
     div{
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        padding: 3rem 0rem 2rem;
+        padding: 2rem 0rem 2rem;
         border-radius: 15px;
         background-color: rgb(81, 81, 219);
         height: 450px;
+        max-width: 460px;
         text-align: center;
         position: relative;
         transition: bottom 0.4s;
@@ -102,19 +104,91 @@ nav{
             padding: 0 1.7rem;
         }
         img{
-            width: 455px;
-            height: 350px;
+            width: 100%;
+            height: 24rem;
             rotate: 0deg;
             opacity: 85%;
             filter: saturate(100%);
+            position: relative;
+            bottom: +15px;
+            
         }
         &:hover{
             bottom: 10px;
 
         }
-        
-    
     }
+}
 
+.start-section{
+    margin: 8rem 0 0;
+    background-color: aqua;
+    padding: 5rem 0;
+    background: rgb(13,13,13);
+    background: linear-gradient(87deg, rgba(13,13,13,1) 0%, rgba(66,73,84,1) 32%, rgba(80,81,97,1) 64%, rgba(29,35,46,1) 100%);
+    .main-div{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9rem;
+        width: 60%;
+        margin: 0 auto;
+        img{
+            -webkit-box-shadow: -8px 7px 0px 3px rgba(186,13,100,1);
+            -moz-box-shadow: -8px 7px 0px 3px rgba(186,13,100,1);
+            box-shadow: -8px 7px 0px 3px rgba(186,13,100,1);
+            border-radius: 25px;
+        }
+        div{
+            text-align: center;
+            padding: 4rem 2rem 0rem;
+            height: 350px;
+            width: 300px;
+            border-radius: 25px;
+            position: relative;
+            top: 1rem;
+            -webkit-box-shadow: 11px 12px 0px -2px rgba(255,255,255,1);
+            -moz-box-shadow: 11px 12px 0px -2px rgba(255,255,255,1);
+            box-shadow: 11px 12px 0px -2px rgba(255,255,255,1);
+            background: rgb(196,23,110);
+            background: linear-gradient(22deg, rgba(196,23,110,1) 27%, rgba(181,15,135,1) 58%, rgba(218,115,197,1) 100%, rgba(251,145,204,1) 100%);     
+            h3{
+                font-size: 1.7rem;
+                margin-bottom: 4rem;
+                color: white;
+            }
+            a{
+                width: 5rem;
+                padding: 0.5rem 3rem;
+                background-color: white;
+                height: 3rem;
+                border-radius: 10px;
+                font-size: 1.4rem;
+                text-decoration: none;
+                color: $pink;
+                font-weight: 600;
+                border: 2px solid transparent;
+                transition: 0.5s;
+                &:hover{
+                    border: 2px solid white;
+                    background-color: $pink;
+                    color: white;
+                }
+            }
+        }
+    }
+}
 
+footer{
+    text-align: center;
+    padding: 3rem 0 2rem;
+    background: rgb(161,187,244);
+    background: linear-gradient(0deg, rgba(161,187,244,1) 0%, rgba(190,213,255,1) 35%, rgba(213,219,255,1) 86%, rgba(199,217,255,1) 100%);
+    a{
+        text-decoration: none;
+        margin: 0 1rem;
+        color: black;
+    }
+    p{
+        margin: 1rem 0;
+    }
 }
