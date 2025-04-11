@@ -184,10 +184,17 @@ footer p {
   margin: 1rem 0;
 }
 
+.healthcard-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .sidebar {
-  width: 320px;
+  width: 20rem;
   padding: 25px;
-  background-color: #fdfdfe;
+  background: rgb(161, 187, 244);
+  background: linear-gradient(0deg, rgb(161, 187, 244) 0%, rgb(190, 213, 255) 35%, rgb(213, 219, 255) 86%, rgb(199, 217, 255) 100%);
   font-family: "Segoe UI", sans-serif;
   border-right: 1px solid #ddd;
   height: 100vh;
@@ -222,7 +229,7 @@ footer p {
   border-radius: 10px;
   background-color: #ffffff;
   border: 1px solid #ddd;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 3px 3px 0px 0px rgba(129, 164, 235, 0.51);
   transition: all 0.3s ease;
   display: flex;
   justify-content: space-between;
@@ -276,4 +283,23 @@ footer p {
     border-right: none;
     border-bottom: 1px solid #ddd;
   }
+}
+
+.disease-details {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  margin-left: 20px;
+  overflow-y: auto;
+}
+
+.disease-details h2 {
+  font-size: 2rem;
+  color: rgb(39, 39, 196);
+  margin-bottom: 10px;
+}
+
+.disease-details p {
+  font-size: 1.2rem;
+  color: #333;
 }/*# sourceMappingURL=main.css.map */

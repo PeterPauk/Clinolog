@@ -1,9 +1,16 @@
 @import "../abstracts/variables";
 
+.healthcard-body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .sidebar {
-  width: 320px;
+  width: 20rem;
   padding: 25px;
-  background-color: $light-bg;
+  background: rgb(161,187,244);
+  background: linear-gradient(0deg, rgba(161,187,244,1) 0%, rgba(190,213,255,1) 35%, rgba(213,219,255,1) 86%, rgba(199,217,255,1) 100%);
   font-family: 'Segoe UI', sans-serif;
   border-right: 1px solid $border-color;
   height: 100vh;
@@ -39,7 +46,9 @@
         border-radius: $radius;
         background-color: #ffffff;
         border: 1px solid $border-color;
-        box-shadow: $shadow;
+        -webkit-box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.51);
+        -moz-box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.51);
+        box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.51);
         transition: $transition;
         display: flex;
         justify-content: space-between;
@@ -105,4 +114,21 @@
     border-right: none;
     border-bottom: 1px solid $border-color;
   }
+}
+
+.disease-details{
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  margin-left: 20px;
+  overflow-y: auto;
+}
+.disease-details h2 {
+  font-size: 2rem;
+  color: rgb(39, 39, 196);
+  margin-bottom: 10px;
+}
+.disease-details p {
+  font-size: 1.2rem;
+  color: #333;
 }
