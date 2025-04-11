@@ -17,7 +17,7 @@
         <nav>
             <h2>Clinolog</h2>
             <ul>
-                <li><a href="#">Login</a></li>
+                <li><a href="./pages/healthcard.php">Login</a></li>
                 <li><a href="#">Register</a></li>
             </ul>
         </nav>

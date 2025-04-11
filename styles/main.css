@@ -181,4 +181,98 @@ footer a {
 }
 footer p {
   margin: 1rem 0;
+}
+
+.sidebar {
+  width: 320px;
+  padding: 25px;
+  background-color: #fdfdfe;
+  font-family: "Segoe UI", sans-serif;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+.sidebar h2 {
+  font-size: 1.7rem;
+  color: rgb(39, 39, 196);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: linear-gradient(to right, rgb(39, 39, 196), rgb(185, 13, 99));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+.sidebar ul li summary {
+  font-weight: 600;
+  color: #2c2c2c;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sidebar ul li summary:hover {
+  background-color: #f682bc;
+  color: rgb(39, 39, 196);
+  border-color: #6f6fe2;
+}
+.sidebar ul li summary::marker {
+  display: none;
+}
+.sidebar ul li ul {
+  margin-top: 8px;
+  margin-left: 15px;
+  padding-left: 0;
+}
+.sidebar ul li ul li {
+  font-weight: normal;
+  color: #060606;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 6px;
+  background-color: lavender;
+  transition: all 0.3s ease;
+}
+.sidebar ul li ul li:hover {
+  background-color: #f89ac9;
+  color: rgb(185, 13, 99);
+}
+.sidebar details {
+  margin-bottom: 10px;
+}
+.sidebar details[open] > summary {
+  background-color: #afafef;
+  color: rgb(185, 13, 99);
+  border-color: #5959de;
+}
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #4444da;
+  border-radius: 6px;
+}
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
 }/*# sourceMappingURL=main.css.map */

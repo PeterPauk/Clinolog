@@ -1,0 +1,284 @@
+{
+    "systems": [
+      {
+        "name": "Nervová sústava",
+        "categories": [
+          {
+            "name": "Neurodegeneratívne ochorenia",
+            "diseases": [
+              "Alzheimerova choroba",
+              "Parkinsonova choroba",
+              "Huntingtonova choroba",
+              "Amyotrofická laterálna skleróza (ALS)",
+              "Multisystémová atrofia"
+            ]
+          },
+          {
+            "name": "Zápalové ochorenia",
+            "diseases": [
+              "Encefalitída",
+              "Meningitída",
+              "Roztrúsená skleróza",
+              "Guillain-Barrého syndróm",
+              "Neurosyfilis"
+            ]
+          },
+          {
+            "name": "Nádory nervového systému",
+            "diseases": [
+              "Glioblastóm",
+              "Meningeóm",
+              "Schwannóm",
+              "Astrocytóm",
+              "Meduloblastóm"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Obehová sústava",
+        "categories": [
+          {
+            "name": "Ochorenia srdca",
+            "diseases": [
+              "Ischemická choroba srdca",
+              "Infarkt myokardu",
+              "Srdcové zlyhávanie",
+              "Arytmia",
+              "Kardiomyopatia"
+            ]
+          },
+          {
+            "name": "Cievne ochorenia",
+            "diseases": [
+              "Ateroskleróza",
+              "Hypertenzia",
+              "Aneuryzma aorty",
+              "Trombóza",
+              "Embólia"
+            ]
+          },
+          {
+            "name": "Vrodené choroby",
+            "diseases": [
+              "Fallotova tetralógia",
+              "Defekt septa komôr",
+              "Defekt septa predsiení",
+              "Koarktácia aorty",
+              "Transpozícia veľkých ciev"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Dýchacia sústava",
+        "categories": [
+          {
+            "name": "Infekčné ochorenia",
+            "diseases": [
+              "Zápal pľúc",
+              "Tuberkulóza",
+              "Bronchitída",
+              "Covid-19",
+              "Chrípka"
+            ]
+          },
+          {
+            "name": "Chronické ochorenia",
+            "diseases": [
+              "Astma bronchiale",
+              "Chronická obštrukčná choroba pľúc (CHOCHP)",
+              "Sarkoidóza",
+              "Pľúcna fibróza",
+              "Cystická fibróza"
+            ]
+          },
+          {
+            "name": "Nádory",
+            "diseases": [
+              "Karcinóm pľúc",
+              "Mezotelióm",
+              "Bronchogénny karcinóm",
+              "Adenokarcinóm",
+              "Skvamocelulárny karcinóm"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Tráviaca sústava",
+        "categories": [
+          {
+            "name": "Zápalové ochorenia",
+            "diseases": [
+              "Gastritída",
+              "Enteritída",
+              "Kolitída",
+              "Crohnova choroba",
+              "Ulcerózna kolitída"
+            ]
+          },
+          {
+            "name": "Infekcie",
+            "diseases": [
+              "Hepatitída A",
+              "Hepatitída B",
+              "Hepatitída C",
+              "Salmonelóza",
+              "Campylobakterióza"
+            ]
+          },
+          {
+            "name": "Iné poruchy",
+            "diseases": [
+              "Gastroezofageálny reflux (GERD)",
+              "Peptický vred",
+              "Cirhóza pečene",
+              "Hemoroidy",
+              "Rakovina žalúdka"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Pohybová sústava",
+        "categories": [
+          {
+            "name": "Degeneratívne ochorenia",
+            "diseases": [
+              "Osteoartritída",
+              "Osteoporóza",
+              "Spondylóza",
+              "Chondromalácia pately",
+              "Diskopatia"
+            ]
+          },
+          {
+            "name": "Zápalové choroby",
+            "diseases": [
+              "Reumatoidná artritída",
+              "Bechterevova choroba",
+              "Dna",
+              "Polymyalgia rheumatica",
+              "Myozitída"
+            ]
+          },
+          {
+            "name": "Úrazy a poruchy",
+            "diseases": [
+              "Fraktúra kosti",
+              "Vymknutie kĺbu",
+              "Tendomyozitída",
+              "Syndróm karpálneho tunela",
+              "Zlomenina stavca"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Lymfatická a imunitná sústava",
+        "categories": [
+          {
+            "name": "Autoimunitné choroby",
+            "diseases": [
+              "Lupus erythematosus",
+              "Sjögrenov syndróm",
+              "Myasthenia gravis",
+              "Hashimotova tyreoiditída",
+              "Celiakia"
+            ]
+          },
+          {
+            "name": "Imunodeficiencie",
+            "diseases": [
+              "AIDS",
+              "Selektívna deficiencia IgA",
+              "Agamaglobulinémia",
+              "SCID",
+              "Chronická granulomatózna choroba"
+            ]
+          },
+          {
+            "name": "Lymfatické nádory",
+            "diseases": [
+              "Hodgkinov lymfóm",
+              "Nehodgkinov lymfóm",
+              "Leukémia",
+              "Myelóm",
+              "Lymfadenitída"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Kožná sústava",
+        "categories": [
+          {
+            "name": "Infekčné ochorenia kože",
+            "diseases": [
+              "Impetigo",
+              "Herpes simplex",
+              "Bradavice",
+              "Kandidóza",
+              "Erysipel"
+            ]
+          },
+          {
+            "name": "Autoimunitné a zápalové choroby",
+            "diseases": [
+              "Psoriáza",
+              "Atopický ekzém",
+              "Lupus erythematosus cutaneus",
+              "Vitiligo",
+              "Lichen planus"
+            ]
+          },
+          {
+            "name": "Nádory a výrastky",
+            "diseases": [
+              "Bazocelulárny karcinóm",
+              "Spinocelulárny karcinóm",
+              "Melanóm",
+              "Ateróm",
+              "Seboroická keratóza"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Endokrinná sústava",
+        "categories": [
+          {
+            "name": "Ochorenia štítnej žľazy",
+            "diseases": [
+              "Hypotyreóza",
+              "Hypertyreóza",
+              "Struma",
+              "Graves-Basedowova choroba",
+              "Tyreoiditída"
+            ]
+          },
+          {
+            "name": "Cukrovka a metabolické choroby",
+            "diseases": [
+              "Diabetes mellitus 1. typu",
+              "Diabetes mellitus 2. typu",
+              "Metabolický syndróm",
+              "Addisonova choroba",
+              "Cushingov syndróm"
+            ]
+          },
+          {
+            "name": "Poruchy hypofýzy a nadobličiek",
+            "diseases": [
+              "Akromegália",
+              "Gigantizmus",
+              "Hypopituitarizmus",
+              "Feochromocytóm",
+              "Hyperaldosteronizmus"
+            ]
+          }
+        ]
+      }
+    ]
+  }

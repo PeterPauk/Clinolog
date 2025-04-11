@@ -1,0 +1,108 @@
+@import "../abstracts/variables";
+
+.sidebar {
+  width: 320px;
+  padding: 25px;
+  background-color: $light-bg;
+  font-family: 'Segoe UI', sans-serif;
+  border-right: 1px solid $border-color;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    font-size: 1.7rem;
+    color: $blue;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: linear-gradient(to right, $blue, $pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 12px;
+
+      summary {
+        font-weight: 600;
+        color: $text-color;
+        cursor: pointer;
+        padding: 10px 14px;
+        border-radius: $radius;
+        background-color: #ffffff;
+        border: 1px solid $border-color;
+        box-shadow: $shadow;
+        transition: $transition;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+          background-color: lighten($pink, 35%);
+          color: $blue;
+          border-color: lighten($blue, 20%);
+        }
+
+        &::marker {
+          display: none;
+        }
+      }
+
+      ul {
+        margin-top: 8px;
+        margin-left: 15px;
+        padding-left: 0;
+
+        li {
+          font-weight: normal;
+          color: darken($text-color, 15%);
+          padding: 8px 12px;
+          border-radius: 8px;
+          margin-top: 6px;
+          background-color: lighten($blue, 48%);
+          transition: $transition;
+
+          &:hover {
+            background-color: lighten($pink, 40%);
+            color: $pink;
+          }
+        }
+      }
+    }
+  }
+
+  details {
+    margin-bottom: 10px;
+
+    &[open] > summary {
+      background-color: lighten($blue, 35%);
+      color: $pink;
+      border-color: lighten($blue, 15%);
+    }
+  }
+
+  // Scrollbar style
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: lighten($blue, 10%);
+    border-radius: 6px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid $border-color;
+  }
+}
