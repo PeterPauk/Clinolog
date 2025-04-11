@@ -129,8 +129,8 @@ nav{
     .main-div{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 9rem;
-        width: 60%;
+        gap: 5rem;
+        width: 55%;
         margin: 0 auto;
         img{
             -webkit-box-shadow: -8px 7px 0px 3px rgba(186,13,100,1);
@@ -139,6 +139,7 @@ nav{
             border-radius: 25px;
         }
         div{
+            margin-left: 2rem;
             text-align: center;
             padding: 4rem 2rem 0rem;
             height: 350px;

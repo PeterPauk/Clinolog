@@ -124,8 +124,8 @@ nav ul li a:hover {
 .start-section .main-div {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 9rem;
-  width: 60%;
+  gap: 5rem;
+  width: 55%;
   margin: 0 auto;
 }
 .start-section .main-div img {
@@ -133,6 +133,7 @@ nav ul li a:hover {
   border-radius: 25px;
 }
 .start-section .main-div div {
+  margin-left: 2rem;
   text-align: center;
   padding: 4rem 2rem 0rem;
   height: 350px;
