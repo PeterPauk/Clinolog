@@ -268,7 +268,7 @@ footer p {
   transition: all 0.3s ease;
 }
 .sidebar ul li ul li:hover {
-  background-color: #f89ac9;
+  background-color: white;
   color: rgb(185, 13, 99);
 }
 .sidebar details {
@@ -297,13 +297,25 @@ footer p {
 }
 
 .disease-details {
-  flex-grow: 1;
+  flex-grow: 2;
   padding: 2rem;
   background-color: #f9f9f9;
-  margin-left: 20px;
+  margin-left: 2rem;
   overflow-y: auto;
   background: #ffffff;
   background: linear-gradient(147deg, rgb(255, 255, 255) 58%, rgba(129, 164, 235, 0.67) 85%, rgba(185, 13, 99, 0.37) 100%);
+}
+.disease-details a {
+  border: 2px solid black;
+  padding: 4rem 3rem;
+  margin-left: 4rem;
+  position: relative;
+  top: 5rem;
+  border-radius: 25px;
+  border: 5px dashed grey;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgb(78, 78, 78);
 }
 
 .disease-details h2 {
@@ -318,8 +330,15 @@ footer p {
 }
 
 .subcategory {
-  padding: 8px 12px;
+  padding: 8px 6px;
   margin-right: 1rem;
+}
+.subcategory a {
+  text-decoration: none;
+  color: black;
+}
+.subcategory a:hover {
+  color: rgb(185, 13, 99);
 }
 
 .sub-ul {

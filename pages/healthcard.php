@@ -106,6 +106,7 @@ if (isset($_GET['disease_id'])) {
                 <h2><?= htmlspecialchars($disease_name) ?></h2>
                 <p><?= nl2br(htmlspecialchars($disease_description)) ?></p>
             </div>
+            <a href="#">Pridať pacienta</a>
         <?php else: ?>
             <p>Vyberte chorobu na zobrazenie detailov.</p>
         <?php endif; ?>
