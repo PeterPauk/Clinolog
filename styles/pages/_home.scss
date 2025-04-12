@@ -61,6 +61,7 @@ nav{
         margin: auto 5rem;
         width: 40%;
         font-weight: 600;
+        animation: fadeIn 3s;
         span{
             color: $pink;
         }
@@ -192,4 +193,9 @@ footer{
     p{
         margin: 1rem 0;
     }
+}
+
+@keyframes fadeIn{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }

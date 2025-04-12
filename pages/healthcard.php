@@ -81,9 +81,9 @@ if (isset($_GET['disease_id'])) {
                                 <li>
                                     <details>
                                         <summary><?= htmlspecialchars($kat['nazov']) ?></summary>
-                                        <ul>
+                                        <ul class="sub-ul">
                                             <?php foreach ($kat['choroby'] as $choroba): ?>
-                                                <li>
+                                                <li class="subcategory">
                                                     <a href="?disease_id=<?= $choroba['id'] ?>">
                                                         <?= htmlspecialchars($choroba['name']) ?>
                                                     </a>

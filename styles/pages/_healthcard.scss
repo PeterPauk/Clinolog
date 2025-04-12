@@ -46,9 +46,9 @@
         border-radius: $radius;
         background-color: #ffffff;
         border: 1px solid $border-color;
-        -webkit-box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.51);
-        -moz-box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.51);
-        box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.51);
+        -webkit-box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.7);
+        -moz-box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.7);
+        box-shadow: 3px 3px 0px 0px rgba(129,164,235,0.7);
         transition: $transition;
         display: flex;
         justify-content: space-between;
@@ -57,7 +57,10 @@
         &:hover {
           background-color: lighten($pink, 35%);
           color: $blue;
-          border-color: lighten($blue, 20%);
+          border-color: transparent;
+          -webkit-box-shadow: 3px 3px 0px 0px rgba(179, 27, 98, 0.678);
+          -moz-box-shadow: 3px 3px 0px 0px rgba(179, 27, 98, 0.678);
+          box-shadow: 3px 3px 0px 0px rgba(179, 27, 98, 0.678);
         }
 
         &::marker {
@@ -68,12 +71,12 @@
       ul {
         margin-top: 8px;
         margin-left: 15px;
+        padding-bottom: 4px;
         padding-left: 0;
 
         li {
           font-weight: normal;
           color: darken($text-color, 15%);
-          padding: 8px 12px;
           border-radius: 8px;
           margin-top: 6px;
           background-color: lighten($blue, 48%);
@@ -92,9 +95,12 @@
     margin-bottom: 10px;
 
     &[open] > summary {
-      background-color: lighten($blue, 35%);
+      background-color: lighten($blue, 40%);
       color: $pink;
-      border-color: lighten($blue, 15%);
+      -webkit-box-shadow: 3px 3px 0px 0px rgba(60, 31, 224, 0.678);
+      -moz-box-shadow: 3px 3px 0px 0px rgba(60, 31, 224, 0.678);
+      box-shadow: 3px 3px 0px 0px rgba(60, 31, 224, 0.678);
+      border: 1px solid transparent;
     }
   }
 
@@ -122,6 +128,9 @@
   background-color: #f9f9f9;
   margin-left: 20px;
   overflow-y: auto;
+  background: #ffffff;
+  background: linear-gradient(147deg,rgba(255, 255, 255, 1) 58%, rgba(129, 164, 235, 0.67) 85%, rgba(185, 13, 99, 0.37) 100%);
+  
 }
 .disease-details h2 {
   font-size: 2rem;
@@ -131,4 +140,13 @@
 .disease-details p {
   font-size: 1.2rem;
   color: #333;
+}
+
+.subcategory{
+  padding: 8px 12px;
+  margin-right: 1rem;
+}
+
+.sub-ul{
+  padding-bottom: 8px;
 }
