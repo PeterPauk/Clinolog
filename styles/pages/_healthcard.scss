@@ -3,6 +3,7 @@
 .healthcard-body{
   display: grid;
   grid-template-columns: 1fr 5fr;
+  height: 100vh;
 }
 
 .sidebar {
@@ -137,39 +138,51 @@
       background: rgb(161,187,244);
       background: linear-gradient(180deg, rgba(213,219,255,1) 0%, rgba(190,213,255,1) 65%, rgba(170, 17, 94, 0.39) 100%);
       width: 25rem;
-      height: 42rem;
+      height: 43rem;
       border-radius: 25px;
-      padding: 2rem 1rem;
+      padding: 2rem 1.5rem;
       margin-left: 2rem;
       margin-bottom: 2rem;
-      -webkit-box-shadow: inset -2px -1px 36px 0px rgba(82, 117, 255, 0.2);
-      -moz-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.2);
-      box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.2);
+      -webkit-box-shadow: inset -2px -1px 36px 0px rgba(82, 117, 255, 0.3);
+      -moz-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.3);
+      box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.3);
       h3{
         text-align: center;
-        margin-bottom: 1rem;
       }
-      .patient-name{
-        font-size: 1.5rem;
+      div{
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
       }
-      p{
-        margin-top: 2rem;
-        word-wrap: break-word;
+      input{
+        height: 2.5rem;
+      }
+      textarea, input{
+        border: 0px solid transparent;
+        -webkit-box-shadow: 0px 1px 0px 3px rgba(128,164,235,0.6);
+        -moz-box-shadow: 0px 1px 0px 3px rgba(128,164,235,0.6);
+        box-shadow: 0px 0px 0px 2px rgba(128,164,235,0.6);
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        background-color: rgba(223, 233, 255, 0.541);
+      }
+      span{
+        margin-bottom: 0.5rem;
       }
     }
   }
     form{
-      padding: 2rem 0;
+      padding: 2rem 0.5rem;
       margin-left: 2rem;
       margin-bottom: 2rem;
       width: 25rem;
-      height: 42rem;
+      height: 43rem;
       border-radius: 25px;
       background: rgb(161,187,244);
       background: linear-gradient(0deg, rgba(161,187,244,1) 0%, rgba(190,213,255,1) 35%, rgba(213,219,255,1) 86%, rgba(199,217,255,1) 100%);
-      -webkit-box-shadow: inset -2px -1px 36px 0px rgba(82, 117, 255, 0.2);
-      -moz-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.2);
-      box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.2);
+      -webkit-box-shadow: inset -2px -1px 36px 0px rgba(82, 117, 255, 0.3);
+      -moz-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.3);
+      box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.3);
       h3{
         text-align: center;
       }
@@ -186,10 +199,18 @@
           -moz-box-shadow: 0px 1px 0px 3px rgba(128,164,235,0.6);
           box-shadow: 0px 0px 0px 2px rgba(128,164,235,0.6);
           font-size: 1.2rem;
-          padding-left: 0.5rem;
+          padding: 0.5rem;
         }
         span{
           margin-bottom: 0.5rem;
+        }
+        .disease-name{
+          background-color: white;
+          padding: 0.5rem 1rem;
+          text-align: center;
+          -webkit-box-shadow: 0px 1px 0px 3px rgba(128,164,235,0.6);
+          -moz-box-shadow: 0px 1px 0px 3px rgba(128,164,235,0.6);
+          box-shadow: 0px 0px 0px 2px rgba(128,164,235,0.6);
         }
         .patient-btn{
           border-radius: 10px;
@@ -202,6 +223,32 @@
             box-shadow: 0px 1px 0px 3px rgba(179, 27, 98, 0.678);
             
           }
+        }
+      }
+      .buttons{
+        align-items: center;
+        gap: 1rem;
+        position: relative;
+        top: 0.5rem;
+        button{
+          width: 15rem;
+          padding: 0.5rem 1rem;
+          border: 2px solid white;
+          border-radius: 10px;
+          cursor: pointer;
+          text-transform: uppercase;
+          font-weight: 600;
+          transition: $transition;
+          &:hover{
+            border: 2px solid rgb(0, 0, 0);
+          }
+        }
+        .update{
+          background-color: lighten(rgb(206, 158, 2), 15%);
+        }
+        .delete{
+          background-color: lighten(rgb(206, 16, 2), 15%);
+          color: white
         }
       }
     };

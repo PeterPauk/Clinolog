@@ -75,6 +75,34 @@ if (isset($_GET['disease_id'])) {
     }
 }
 
+if (isset($_POST['update_patient'])) {
+    $id = $_POST['patient_id'];
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $symptoms = $_POST['symptoms'];
+    $cures = $_POST['cures'];
+
+    $update_sql = "UPDATE patients SET name = ?, surname = ?, symptoms = ?, cures = ? WHERE id = ?";
+    $stmt = $mysqli->prepare($update_sql);
+    $stmt->bind_param("ssssi", $name, $surname, $symptoms, $cures, $id);
+    $stmt->execute();
+
+    header("Location: healthcard.php?disease_id=" . $_POST['disease_id']);
+    exit();
+}
+
+if (isset($_POST['delete_patient'])) {
+    $id = $_POST['patient_id'];
+
+    $delete_sql = "DELETE FROM patients WHERE id = ?";
+    $stmt = $mysqli->prepare($delete_sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+
+    header("Location: healthcard.php?disease_id=" . $_POST['disease_id']);
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $surname = $_POST['surname'];
@@ -174,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     
                     <div>
-                    <span>Choroba:<?= htmlspecialchars($disease_name) ?></span>
+                    <span class="disease-name">Choroba:<?= htmlspecialchars($disease_name) ?></span>
                     </div>
 
                     <input type="hidden" name="disease_id" value="<?= htmlspecialchars($_GET['disease_id']) ?>">
@@ -182,17 +210,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <?php if (!empty($patients)): ?>
                     <?php foreach ($patients as $patient): ?>
-                        <div class="patient-card">
+                        <form class="patient-card" method="POST" action="healthcard.php?disease_id=<?= $disease_id ?>">
                             <h3>Pacient</h3>
-                            <span>Meno:</strong><br>
-                            <span class="patient-name"><?= htmlspecialchars($patient['name']) ?> <?= htmlspecialchars($patient['surname']) ?></span>
-                            <p><strong>Príznaky:</strong> <?= nl2br(htmlspecialchars($patient['symptoms'])) ?></p>
-                            <p><strong>Liečivá:</strong> <?= nl2br(htmlspecialchars($patient['cures'])) ?></p>
-                        </div>
+
+                            <input type="hidden" name="patient_id" value="<?= $patient['id'] ?>">
+                            <input type="hidden" name="disease_id" value="<?= $disease_id ?>">
+
+                            <div>
+                                <span>Meno</span>
+                                <input type="text" name="name" value="<?= htmlspecialchars($patient['name']) ?>">
+                            </div>
+
+                            <div>
+                                <span>Priezvisko</span>
+                                <input type="text" name="surname" value="<?= htmlspecialchars($patient['surname']) ?>">
+                            </div>
+
+                            <div>
+                                <span>Príznaky</span>
+                                <textarea name="symptoms" rows="6" cols="60"><?= htmlspecialchars($patient['symptoms']) ?></textarea>
+                            </div>
+
+                            <div>
+                                <span>Liečivá</span>
+                                <textarea name="cures" rows="4" cols="60"><?= htmlspecialchars($patient['cures']) ?></textarea>
+                            </div>
+
+                            <div class="buttons">
+                                <button type="submit" name="update_patient" class="update">Upraviť</button>
+                                <button type="submit" name="delete_patient" class="delete" onclick="return confirm('Naozaj chcete odstrániť pacienta?');">Odstrániť</button>
+                            </div>
+                        </form>
                     <?php endforeach; ?>
-            <?php else: ?>
+                <?php else: ?>
                 <p>Žiadni pacienti zatiaľ neboli pridaní.</p>
-            <?php endif; ?>
+                <?php endif; ?>
 
             </div>
         <?php else: ?>
