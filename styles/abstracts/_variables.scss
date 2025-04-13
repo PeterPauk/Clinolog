@@ -1,13 +1,15 @@
 $blue: rgb(39, 39, 196);
 $pink: rgb(185, 13, 99);
 
-
-
 // _healthcard.scss
-
 $light-bg: #fdfdfe;
 $text-color: #2c2c2c;
 $border-color: #ddd;
 $shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 $radius: 10px;
 $transition: all 0.3s ease;
+
+// login & register
+$landing-gradient: rgb(13,13,13);// linear-gradient(128deg, rgba(9,9,48,1) 0%, rgb(11, 12, 21) 100%);
+$login-gradient: linear-gradient(87deg, rgb(13, 13, 13) 0%, rgb(66, 73, 84) 32%, rgb(80, 81, 97) 64%, rgb(29, 35, 46) 100%); //linear-gradient(180deg, rgba(32,32,69,1) 0%, rgba(25,29,50,1) 100%);
+//$text-neon:  rgb(48, 238, 102);

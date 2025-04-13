@@ -1,6 +1,7 @@
 <?php
-$mysqli = new mysqli("localhost", "root", "", "clinolog");
-$mysqli->set_charset("utf8");
+/* $mysqli = new mysqli("localhost", "root", "", "clinolog");
+$mysqli->set_charset("utf8"); */
+include '../ini/config.php';
 
 $systems_sql = "SELECT * FROM systems";
 $systems_result = $mysqli->query($systems_sql);

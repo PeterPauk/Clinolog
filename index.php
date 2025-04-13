@@ -16,8 +16,8 @@
         <nav>
             <h2>Clinolog</h2>
             <ul>
-                <li><a href="./pages/healthcard.php">Prihlásiť</a></li>
-                <li><a href="#">Zaregistrovať</a></li>
+                <li><a href="./pages/login.php">Prihlásiť</a></li>
+                <li><a href="./pages/register.php">Zaregistrovať</a></li>
             </ul>
         </nav>
     </header>
@@ -50,7 +50,7 @@
                 <img src="./img/doctor.jpg" alt="">
                 <div>
                     <h3>Začnite robiť svet lepším miestom</h3>
-                    <a href="#">Začať</a>
+                    <a href="./pages/healthcard.php">Začať</a>
                 </div>
             </div>
         </section>
