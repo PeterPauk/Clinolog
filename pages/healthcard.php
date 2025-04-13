@@ -58,6 +58,41 @@ if (isset($_GET['disease_id'])) {
         $disease_description = "Popis neexistuje.";
     }
 }
+
+$patients = [];
+
+if (isset($_GET['disease_id'])) {
+    $disease_id = $_GET['disease_id'];
+
+    $patients_sql = "SELECT * FROM patients WHERE disease_id = ?";
+    $stmt = $mysqli->prepare($patients_sql);
+    $stmt->bind_param("i", $disease_id);
+    $stmt->execute();
+    $patients_result = $stmt->get_result();
+
+    while ($row = $patients_result->fetch_assoc()) {
+        $patients[] = $row;
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $symptoms = $_POST['symptoms'];
+    $cures = $_POST['cures'];
+    $disease_id = $_POST['disease_id'];
+
+    $sql = "INSERT INTO patients (name, surname, symptoms, cures, disease_id) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("ssssi", $name, $surname, $symptoms, $cures, $disease_id);
+    $stmt->execute();
+
+    header("Location: healthcard.php?disease_id=" . $disease_id);
+    exit();
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +142,59 @@ if (isset($_GET['disease_id'])) {
                 <h2><?= htmlspecialchars($disease_name) ?></h2>
                 <p><?= nl2br(htmlspecialchars($disease_description)) ?></p>
             </div>
-            <a href="#">Pridať pacienta</a>
+            <div class="patients-grid">
+                <form action="healthcard.php" method="POST">
+                    <h3>Pridajte pacienta</h3>
+
+                    <div>
+                    <span>Meno</span>
+                    <input type="name" name="name" id="" required="required">
+                    <i></i>
+                    </div>
+
+                    <div>
+                    <span>Priezvisko</span>
+                    <input type="surname" name="surname" id="" required="required">
+                    <i></i>
+                    </div>
+
+                    <div>
+                    <span>Príznaky</span>
+                    <textarea name="symptoms" id="" required="required" rows="6" cols="60"></textarea>
+                    <i></i>
+                    </div>
+
+                    <div>
+                    <span>Liečivá</span>
+                    <textarea name="cures" id="" required="required" rows="4" cols="60"></textarea>
+                    <i></i>
+                    </div>
+
+                    <div><input class="patient-btn" type="submit" value="Pridať pacienta">
+                    </div>
+                    
+                    <div>
+                    <span>Choroba:<?= htmlspecialchars($disease_name) ?></span>
+                    </div>
+
+                    <input type="hidden" name="disease_id" value="<?= htmlspecialchars($_GET['disease_id']) ?>">
+                </form>
+
+                <?php if (!empty($patients)): ?>
+                    <?php foreach ($patients as $patient): ?>
+                        <div class="patient-card">
+                            <h3>Pacient</h3>
+                            <span>Meno:</strong><br>
+                            <span class="patient-name"><?= htmlspecialchars($patient['name']) ?> <?= htmlspecialchars($patient['surname']) ?></span>
+                            <p><strong>Príznaky:</strong> <?= nl2br(htmlspecialchars($patient['symptoms'])) ?></p>
+                            <p><strong>Liečivá:</strong> <?= nl2br(htmlspecialchars($patient['cures'])) ?></p>
+                        </div>
+                    <?php endforeach; ?>
+            <?php else: ?>
+                <p>Žiadni pacienti zatiaľ neboli pridaní.</p>
+            <?php endif; ?>
+
+            </div>
         <?php else: ?>
             <p>Vyberte chorobu na zobrazenie detailov.</p>
         <?php endif; ?>

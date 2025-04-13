@@ -1,9 +1,8 @@
 @import "../abstracts/variables";
 
 .healthcard-body{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 }
 
 .sidebar {
@@ -13,7 +12,7 @@
   background: linear-gradient(0deg, rgba(161,187,244,1) 0%, rgba(190,213,255,1) 35%, rgba(213,219,255,1) 86%, rgba(199,217,255,1) 100%);
   font-family: 'Segoe UI', sans-serif;
   border-right: 1px solid $border-color;
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
   box-shadow: $shadow;
   display: flex;
@@ -124,26 +123,91 @@
 
 .disease-details{
   flex-grow: 2;
-  padding: 2rem;
-  background-color: #f9f9f9;
+  padding: 1rem 2rem 2rem;
+  border-radius: 15px;
   //margin-left: 2rem;
   overflow-y: auto;
   background: #ffffff;
   background: linear-gradient(147deg,rgba(255, 255, 255, 1) 58%, rgba(129, 164, 235, 0.67) 85%, rgba(185, 13, 99, 0.37) 100%);
-  a{
-    border: 2px solid black;
-    padding: 4rem 3rem;
-    margin-left: 4rem;
-    position: relative;
-    top: 5rem;
-    border-radius: 25px;
-    border: 5px dashed grey;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: rgb(78, 78, 78);
+  .patients-grid{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .patient-card{
+      background: rgb(161,187,244);
+      background: linear-gradient(180deg, rgba(213,219,255,1) 0%, rgba(190,213,255,1) 65%, rgba(170, 17, 94, 0.39) 100%);
+      width: 25rem;
+      height: 42rem;
+      border-radius: 25px;
+      padding: 2rem 1rem;
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+      -webkit-box-shadow: inset -2px -1px 36px 0px rgba(82, 117, 255, 0.2);
+      -moz-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.2);
+      box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.2);
+      h3{
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      .patient-name{
+        font-size: 1.5rem;
+      }
+      p{
+        margin-top: 2rem;
+        word-wrap: break-word;
+      }
+    }
+  }
+    form{
+      padding: 2rem 0;
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+      width: 25rem;
+      height: 42rem;
+      border-radius: 25px;
+      background: rgb(161,187,244);
+      background: linear-gradient(0deg, rgba(161,187,244,1) 0%, rgba(190,213,255,1) 35%, rgba(213,219,255,1) 86%, rgba(199,217,255,1) 100%);
+      -webkit-box-shadow: inset -2px -1px 36px 0px rgba(82, 117, 255, 0.2);
+      -moz-box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.2);
+      box-shadow: inset -2px -1px 36px 0px rgba(82,117,255,0.2);
+      h3{
+        text-align: center;
+      }
+      div{
+        margin: 1rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        input{
+          height: 2.5rem;
+        }
+        textarea, input{
+          border: 0px solid transparent;
+          -webkit-box-shadow: 0px 1px 0px 3px rgba(128,164,235,0.6);
+          -moz-box-shadow: 0px 1px 0px 3px rgba(128,164,235,0.6);
+          box-shadow: 0px 0px 0px 2px rgba(128,164,235,0.6);
+          font-size: 1.2rem;
+          padding-left: 0.5rem;
+        }
+        span{
+          margin-bottom: 0.5rem;
+        }
+        .patient-btn{
+          border-radius: 10px;
+          transition: $transition;
+          cursor: pointer;
+          &:hover{
+            background-color: lighten($pink, 35%);
+            -webkit-box-shadow: 0px 1px 0px 3px rgba(179, 27, 98, 0.678);
+            -moz-box-shadow: 0px 1px 0px 3px rgba(179, 27, 98, 0.678);
+            box-shadow: 0px 1px 0px 3px rgba(179, 27, 98, 0.678);
+            
+          }
+        }
+      }
+    };
   }
   
-}
+
 .disease-details h2 {
   font-size: 2rem;
   color: rgb(39, 39, 196);
