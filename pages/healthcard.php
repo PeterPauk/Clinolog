@@ -86,11 +86,17 @@ if (isset($_POST['update_patient'])) {
     $update_sql = "UPDATE patients SET name = ?, surname = ?, symptoms = ?, cures = ? WHERE id = ? AND user_id = ?";
     $stmt = $mysqli->prepare($update_sql);
     $stmt->bind_param("ssssii", $name, $surname, $symptoms, $cures, $id, $userid);
-    $stmt->execute();
+
+    if ($stmt->execute()) {
+        $_SESSION["success_message"] = "Pacient bol úspešne upravený.";
+    } else {
+        $_SESSION["error_message"] = "Nepodarilo sa upraviť pacienta.";
+    }
 
     header("Location: healthcard.php?disease_id=" . $_POST['disease_id']);
     exit();
 }
+
 
 if (isset($_POST['delete_patient'])) {
     $id = $_POST['patient_id'];
@@ -98,11 +104,17 @@ if (isset($_POST['delete_patient'])) {
     $delete_sql = "DELETE FROM patients WHERE id = ? AND user_id = ?";
     $stmt = $mysqli->prepare($delete_sql);
     $stmt->bind_param("ii", $id, $userid);
-    $stmt->execute();
+
+    if ($stmt->execute()) {
+        $_SESSION["success_message"] = "Pacient bol úspešne odstránený.";
+    } else {
+        $_SESSION["error_message"] = "Nepodarilo sa odstrániť pacienta.";
+    }
 
     header("Location: healthcard.php?disease_id=" . $_POST['disease_id']);
     exit();
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
