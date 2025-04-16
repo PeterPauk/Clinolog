@@ -1,6 +1,7 @@
 <?php
-/* $mysqli = new mysqli("localhost", "root", "", "clinolog");
-$mysqli->set_charset("utf8"); */
+
+include '../ini/session.php';
+include '../ini/alerts.php';
 include '../ini/config.php';
 
 $systems_sql = "SELECT * FROM systems";
@@ -48,7 +49,7 @@ if (isset($_GET['disease_id'])) {
 
     $disease_sql = "SELECT * FROM diseases WHERE disease_id = $disease_id";
     $disease_result = $mysqli->query($disease_sql);
-    
+
     if ($disease_result && $disease_result->num_rows > 0) {
         $disease = $disease_result->fetch_assoc();
         $disease_name = $disease['name'];
@@ -64,9 +65,9 @@ $patients = [];
 if (isset($_GET['disease_id'])) {
     $disease_id = $_GET['disease_id'];
 
-    $patients_sql = "SELECT * FROM patients WHERE disease_id = ?";
+    $patients_sql = "SELECT * FROM patients WHERE disease_id = ? AND user_id = ?";
     $stmt = $mysqli->prepare($patients_sql);
-    $stmt->bind_param("i", $disease_id);
+    $stmt->bind_param("ii", $disease_id, $userid);
     $stmt->execute();
     $patients_result = $stmt->get_result();
 
@@ -82,9 +83,9 @@ if (isset($_POST['update_patient'])) {
     $symptoms = $_POST['symptoms'];
     $cures = $_POST['cures'];
 
-    $update_sql = "UPDATE patients SET name = ?, surname = ?, symptoms = ?, cures = ? WHERE id = ?";
+    $update_sql = "UPDATE patients SET name = ?, surname = ?, symptoms = ?, cures = ? WHERE id = ? AND user_id = ?";
     $stmt = $mysqli->prepare($update_sql);
-    $stmt->bind_param("ssssi", $name, $surname, $symptoms, $cures, $id);
+    $stmt->bind_param("ssssii", $name, $surname, $symptoms, $cures, $id, $userid);
     $stmt->execute();
 
     header("Location: healthcard.php?disease_id=" . $_POST['disease_id']);
@@ -94,9 +95,9 @@ if (isset($_POST['update_patient'])) {
 if (isset($_POST['delete_patient'])) {
     $id = $_POST['patient_id'];
 
-    $delete_sql = "DELETE FROM patients WHERE id = ?";
+    $delete_sql = "DELETE FROM patients WHERE id = ? AND user_id = ?";
     $stmt = $mysqli->prepare($delete_sql);
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("ii", $id, $userid);
     $stmt->execute();
 
     header("Location: healthcard.php?disease_id=" . $_POST['disease_id']);
@@ -109,10 +110,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $symptoms = $_POST['symptoms'];
     $cures = $_POST['cures'];
     $disease_id = $_POST['disease_id'];
+    $user_id = $userid; // from session
 
-    $sql = "INSERT INTO patients (name, surname, symptoms, cures, disease_id) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO patients (name, surname, symptoms, cures, disease_id, user_id) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $mysqli->prepare($sql);
-    $stmt->bind_param("ssssi", $name, $surname, $symptoms, $cures, $disease_id);
+    $stmt->bind_param("ssssii", $name, $surname, $symptoms, $cures, $disease_id, $user_id);
     $stmt->execute();
 
     header("Location: healthcard.php?disease_id=" . $disease_id);
@@ -130,11 +132,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Zdravotná karta</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <script defer src="js/app.js"></script>
+    <script>
+        function hideAlert() {
+            const alertBox = document.getElementById('alert');
+            if (alertBox) {
+                setTimeout(() => {
+                    alertBox.style.display = 'none';
+                }, 4000);
+            }
+        }
+    </script>
 </head>
 
-<body class="healthcard-body">
+<body class="healthcard-body" onload="hideAlert()">
+    <?php
+    if (isset($_SESSION["success_message"])) {
+        echo "<div id='alert' class='success-alert'>" . htmlspecialchars($_SESSION["success_message"]) . "</div>";
+        unset($_SESSION["success_message"]);
+    } elseif (isset($_SESSION["error_message"])) {
+        echo "<div id='alert' class='error-alert'>" . htmlspecialchars($_SESSION["error_message"]) . "</div>";
+        unset($_SESSION["error_message"]);
+    }
+    ?>
+
+    <div class="top-bar">
+        <div class="profile-info">
+            <span><a href="profile.php"><?= htmlspecialchars($username) ?></a></span>
+            <form action="logout.php" method="POST" style="display:inline;">
+                <button type="submit" class="logout-btn">Odhlásiť sa</button>
+            </form>
+        </div>
+    </div>
     <div class="sidebar">
-        <h2>Zdravotná karta</h2>
+        <a href="../index.php" style="text-decoration: none; cursor: pointer">
+            <h2>Zdravotná karta</h2>
+        </a>
         <ul>
             <?php foreach ($structure as $system): ?>
                 <li>
@@ -175,34 +208,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h3>Pridajte pacienta</h3>
 
                     <div>
-                    <span>Meno</span>
-                    <input type="name" name="name" id="" required="required">
-                    <i></i>
+                        <span>Meno</span>
+                        <input type="name" name="name" id="" required="required">
+                        <i></i>
                     </div>
 
                     <div>
-                    <span>Priezvisko</span>
-                    <input type="surname" name="surname" id="" required="required">
-                    <i></i>
+                        <span>Priezvisko</span>
+                        <input type="surname" name="surname" id="" required="required">
+                        <i></i>
                     </div>
 
                     <div>
-                    <span>Príznaky</span>
-                    <textarea name="symptoms" id="" required="required" rows="6" cols="60"></textarea>
-                    <i></i>
+                        <span>Príznaky</span>
+                        <textarea name="symptoms" id="" required="required" rows="6" cols="60"></textarea>
+                        <i></i>
                     </div>
 
                     <div>
-                    <span>Liečivá</span>
-                    <textarea name="cures" id="" required="required" rows="4" cols="60"></textarea>
-                    <i></i>
+                        <span>Liečivá</span>
+                        <textarea name="cures" id="" required="required" rows="4" cols="60"></textarea>
+                        <i></i>
                     </div>
 
                     <div><input class="patient-btn" type="submit" value="Pridať pacienta">
                     </div>
-                    
+
                     <div>
-                    <span class="disease-name">Choroba:<?= htmlspecialchars($disease_name) ?></span>
+                        <span class="disease-name">Choroba: <?= htmlspecialchars($disease_name) ?></span>
                     </div>
 
                     <input type="hidden" name="disease_id" value="<?= htmlspecialchars($_GET['disease_id']) ?>">
@@ -243,7 +276,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </form>
                     <?php endforeach; ?>
                 <?php else: ?>
-                <p>Žiadni pacienti zatiaľ neboli pridaní.</p>
+                    <p>Žiadni pacienti zatiaľ neboli pridaní.</p>
                 <?php endif; ?>
 
             </div>
@@ -253,4 +286,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
 </body>
+
 </html>

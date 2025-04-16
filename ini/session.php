@@ -1,22 +1,13 @@
-<!-- ===========================
- 
-in progress
-
-=============================-->
-
-
-
-
-
-
-
-
 <?php
 include "config.php";
 session_start();
 
-if (!isset($_SESSION["email"]) && basename($_SERVER['PHP_SELF']) != 'register.php') {
-    header("Location: login.php");
+$current_page = basename($_SERVER['PHP_SELF']);
+$allowed_pages = ['login.php', 'register.php'];
+
+
+if (!isset($_SESSION["email"]) && !in_array($current_page, $allowed_pages)) {
+    header("Location: login.php"); 
     exit();
 }
 

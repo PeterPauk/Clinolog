@@ -9,6 +9,7 @@
 </head>
 
 <body class="body-pre-lukasa-lol">
+    <a href="../index.php" class="brand-link">Clinolog</a>
     <div class="box">
         <span class="borderLine"></span>
         <form action="login.php" method="POST">
@@ -24,7 +25,6 @@
                 <i></i>
             </div>
             <div class="links">
-                <!-- <a href="#">Forgot Password?</a> -->
                 <a href="register.php">Registrácia</a>
             </div>
             <input type="submit" value="Prihlásiť">
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["email"] = $user["email"];
             $_SESSION["user_id"] = $user["id"];
             $_SESSION["name"] = $user["name"];
-            $_SESSION["success_message"] = "Login successful!";
+            $_SESSION["success_message"] = "Boli ste úspešne prihlásení!";
 
             header("Location: healthcard.php");
             exit();

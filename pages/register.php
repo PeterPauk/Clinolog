@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrácia</title>
     <link rel="stylesheet" href="../styles/main.css">
 </head>
+
 <body class="body-pre-lukasa-lol">
+    <a href="../index.php" class="brand-link">Clinolog</a>
     <div class="box">
         <span class="borderLine"></span>
         <form action="register.php" method="POST">
@@ -43,6 +46,7 @@
         </form>
     </div>
 </body>
+
 </html>
 
 <?php
@@ -84,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $mysqli->prepare($sql);
         $stmt->bind_param("ssss", $name, $surname, $email, $hashedPassword);
 
-        
+
         if ($stmt->execute()) {
             $_SESSION["email"] = $email;
             $_SESSION["user_id"] = $mysqli->insert_id;

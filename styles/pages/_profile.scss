@@ -1,295 +1,185 @@
-/* ============================
- 
-in progress
-
-=============================*/
-
-
-
-
-
-
-
-
-
-
-
-
-
 @import "../abstracts/variables";
 @import "../abstracts/mixins";
 
-.profile-page {
-    padding: 1rem;
+.brand-link {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: $blue;
+  text-decoration: none;
+  font-family: "Sen", sans-serif;
+  z-index: 10;
+
+  &:hover {
+    color: darken($blue, 10%);
+  }
+}
+
+.page-content {
+  background: $blue-bg-gradient;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: $text-color;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+}
+
+.profile-card {
+  background: white;
+  border: 1px solid $border-color;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: 2rem;
+  transition: $transition;
+
+  .card-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: $blue;
+  }
+
+  hr {
+    margin: 1.5rem 0;
+    border: none;
+    height: 1px;
+    background-color: $border-color;
+  }
+}
+
+.profile-picture-form {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  .profile-picture-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid $blue;
+    flex-shrink: 0;
+
+    img.profile-picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .file-label {
+      font-weight: 500;
+      color: $pink;
+      cursor: pointer;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .upload-button {
+      background: $blue;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: $radius;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background: darken($blue, 10%);
+      }
+    }
+  }
+}
+
+.profile-info-form,
+.password-change-form {
+  margin-top: 2rem;
+
+  .form-grid {
     display: grid;
-    grid-template-columns: 1.3fr 6fr;
-    gap: 2rem;
-    color: white;
-    height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 
-    .sidebar {
-        padding: 1rem 0.5rem 0;
-        display: flex;
-        flex-direction: column;
-        border-radius: 15px;
-        background: $login-gradient;
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
 
-        .user {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+  .form-group {
+    display: flex;
+    flex-direction: column;
 
-        .user,
-        .management,
-        .settings {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-content: flex-end;
-            padding: 0rem 0.3rem 0;
-
-            h3 {
-                font-size: 1.7rem;
-                margin: 1rem 0 2rem;
-                color: $blue;
-            }
-
-            h4 {
-                font-size: 1.2rem;
-                opacity: 50%;
-                margin-block-end: 0.5em;
-            }
-
-            img {
-                width: toRem(100);
-                height: toRem(100);
-                border: 2px solid $blue;
-                border-radius: 50%;
-            }
-
-            a {
-                color: white;
-                text-decoration: none;
-                margin-bottom: 1rem;
-                padding: 0.6rem 0 0.6rem;
-                font-size: 1.2rem;
-                border-bottom: 4px solid $landing-gradient;
-                border-right: 4px solid $landing-gradient;
-                transition: 0.4s;
-
-                i {
-                    margin: 0 0.5rem 0 0;
-                }
-
-                &:hover {
-                    color: $blue;
-                    border-bottom: 4px solid $blue;
-                    border-right: 4px solid $blue;
-                }
-            }
-        }
+    label {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      color: $text-color;
     }
 
-    .page-content {
-        border-radius: 15px;
-        background: $landing-gradient;
-        padding: 2rem;
-        color: black;
+    .input-text {
+      padding: 0.6rem 1rem;
+      border: 1px solid $border-color;
+      border-radius: $radius;
+      font-size: 1rem;
+      transition: $transition;
 
-        .container {
-            //max-width: 800px;
-            //margin: 0 auto;
+      &:focus {
+        outline: none;
+        border-color: $blue;
+        box-shadow: 0 0 0 2px rgba($blue, 0.1);
+      }
 
-            .row.center {
-                display: flex;
-                flex-direction: column;
-                //justify-content: center;
-            }
-
-            hr {
-                margin: 1rem 0 1rem 0;
-            }
-
-            .profile-form-container {
-                width: 100%;
-                padding: 2rem;
-            
-                .profile-picture-form {
-                    margin: 2.5rem 0 2rem 0;
-
-                    .profile-picture-container {
-                        text-align: center;
-                        margin-bottom: 1.5rem;
-
-                        .profile-picture {
-                            border-radius: 50%;
-                            border: 3px solid $pink;
-                            width: toRem(150);
-                            height: toRem(150);
-                        }
-                    }
-
-                    .upload-section {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        gap: 1rem;
-
-                        .file-input {
-                            display: none;
-                        }
-
-                        .file-label {
-                            @include button-green;
-                            display: flex;
-                            align-items: center;
-                            /* background: $bg-dark;
-              color: $landing-gradient;
-              padding: 0.5rem 1rem;
-              border-radius: 5px;
-              cursor: pointer;
-              transition: background 0.3s;
-
-              &:hover {
-                background: $text-neon;
-              } */
-                        }
-
-                        .upload-button {
-                            @include button-empty;
-                            /* background: $bg-dark;
-              color: white;
-              padding: 0.5rem 1rem;
-              border: none;
-              border-radius: 5px;
-              cursor: pointer;
-              transition: background 0.3s;
-
-              &:hover {
-                background: darken($bg-dark, 10%);
-              } */
-                        }
-                    }
-                }
-
-                .profile-info-form {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    .form-row {
-                        width: 50%;
-                        margin-bottom: 1.5rem;
-
-                        .form-group {
-                            flex: 1;
-
-                            label {
-                                display: block;
-                                font-size: 1.2rem;
-                                margin-bottom: 0.4rem;
-                                color: white;
-                            }
-
-                            .input-text {
-                                width: 100%;
-                                padding: 0.8rem;
-                                border: 1px solid $blue;
-                                border-radius: 5px;
-                                font-size: 1rem;
-                                margin-bottom: 1.2rem;
-
-                                &:disabled {
-                                    background: rgb(172, 167, 167);
-                                }
-                            }
-                        }
-                    }
-
-                    .form-actions {
-                        text-align: center;
-
-                        .save-button {
-                            //@include button-empty;
-                            /* background: $bg-dark;
-                            color: white;
-                            padding: 0.8rem 1.5rem;
-                            border: none;
-                            border-radius: 5px;
-                            font-size: 1.2rem;
-                            cursor: pointer;
-                            transition: background 0.3s;
-
-                            &:hover {
-                                background: darken($bg-dark, 10%);
-                            } */
-                        }
-                    }
-                }
-
-                .password-change-form {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    h3 {
-                        color: $pink;
-                        font-size: toRem(24);
-                        font-weight: 600;
-                        margin-top: 4rem;
-                    }
-
-                    .form-row {
-                        width: 50%;
-                        margin-bottom: 1.5rem;
-
-                        .form-group {
-                            flex: 1;
-
-                            label {
-                                display: block;
-                                font-size: 1.2rem;
-                                margin-bottom: 0.4rem;
-                                color: white;
-                            }
-
-                            .input-text {
-                                width: 100%;
-                                padding: 0.8rem;
-                                border: 1px solid $blue;
-                                border-radius: 5px;
-                                font-size: 1rem;
-                                margin-bottom: 1.2rem;
-
-                                &:disabled {
-                                    background: rgb(172, 167, 167);
-                                }
-                            }
-                        }
-                    }
-
-                    .form-actions {
-                        text-align: center;
-
-                        .save-button {
-                            //@include button-empty;
-                            /* background: $bg-dark;
-                            color: white;
-                            padding: 0.8rem 1.5rem;
-                            border: none;
-                            border-radius: 5px;
-                            font-size: 1.2rem;
-                            cursor: pointer;
-                            transition: background 0.3s;
-
-                            &:hover {
-                                background: darken($bg-dark, 10%);
-                            } */
-                        }
-                    }
-                }
-            }
-        }
+      &:disabled {
+        background-color: #f5f5f5;
+        color: #999;
+      }
     }
+  }
+
+  .form-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+
+    .save-button {
+      background: $pink;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: $radius;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background: darken($pink, 10%);
+      }
+    }
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    color: $blue;
+  }
+
+  .message {
+    color: rgb(49, 204, 93);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
 }

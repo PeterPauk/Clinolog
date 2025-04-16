@@ -193,6 +193,42 @@ footer p {
     opacity: 1;
   }
 }
+.success-alert {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(49, 204, 93);
+  color: whitesmoke;
+  padding: 10px 20px;
+  border-radius: 5px;
+  animation: fadeOut 3s forwards;
+}
+
+.error-alert {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(243, 64, 64);
+  color: whitesmoke;
+  padding: 10px 20px;
+  border-radius: 5px;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
 .healthcard-body {
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -441,6 +477,46 @@ footer p {
   padding-bottom: 8px;
 }
 
+.top-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 999;
+  border-bottom-left-radius: 12px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+.top-bar .profile-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.top-bar .profile-info span {
+  font-weight: 500;
+  color: #333;
+}
+.top-bar .profile-info a {
+  color: #1c3faa;
+  text-decoration: none;
+  font-weight: bold;
+}
+.top-bar .profile-info a:hover {
+  color: #112768;
+}
+.top-bar .profile-info .logout-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #f44336;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.top-bar .profile-info .logout-btn:hover {
+  background-color: #ea1c0d;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -452,14 +528,14 @@ footer p {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: rgb(13, 13, 13);
+  background: #fdfdfe;
 }
 
 .box {
   position: relative;
   width: 90%;
   max-width: 380px;
-  background: #1c1c1c;
+  background: #ddd;
   border-radius: 8px;
   padding: 0.25rem;
   overflow: hidden;
@@ -471,7 +547,7 @@ footer p {
   left: -50%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, transparent, transparent, rgb(39, 39, 196), rgb(185, 13, 99));
+  background: linear-gradient(0deg, transparent, transparent, rgb(39, 39, 196), rgb(185, 13, 99), rgb(185, 13, 99));
   z-index: 1;
   transform-origin: bottom right;
   animation: animate 6s linear infinite;
@@ -485,7 +561,7 @@ footer p {
   display: flex;
   flex-direction: column;
   padding: 3.125rem 2.5rem;
-  background: linear-gradient(87deg, rgb(13, 13, 13) 0%, rgb(66, 73, 84) 32%, rgb(80, 81, 97) 64%, rgb(29, 35, 46) 100%);
+  background: linear-gradient(120deg, rgb(240, 190, 220) 0%, rgb(230, 160, 210) 40%, rgb(220, 135, 195) 70%, rgb(210, 115, 185) 100%);
   border-radius: 8px;
 }
 .box form h2 {
@@ -540,7 +616,7 @@ footer p {
   left: 0;
   padding: 1.25rem 0rem 0.625rem;
   pointer-events: none;
-  color: #8f8f8f;
+  color: #707070;
   font-size: 1em;
   letter-spacing: 0.05em;
   transition: 0.5s;
@@ -564,7 +640,7 @@ footer p {
 .box form .links a {
   margin: 0.625rem 0;
   font-size: 0.75em;
-  color: #8f8f8f;
+  color: #707070;
   text-decoration: none;
 }
 .box form .links a:hover .box form .links a:nth-child(2) {
@@ -600,295 +676,178 @@ footer p {
     transform: rotate(360deg);
   }
 }
-/* ============================
-
-in progress
-
-=============================*/
-.profile-page {
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: 1.3fr 6fr;
-  gap: 2rem;
-  color: white;
-  height: 100vh;
-}
-.profile-page .sidebar {
-  padding: 1rem 0.5rem 0;
-  display: flex;
-  flex-direction: column;
-  border-radius: 15px;
-  background: linear-gradient(87deg, rgb(13, 13, 13) 0%, rgb(66, 73, 84) 32%, rgb(80, 81, 97) 64%, rgb(29, 35, 46) 100%);
-}
-.profile-page .sidebar .user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.profile-page .sidebar .user,
-.profile-page .sidebar .management,
-.profile-page .sidebar .settings {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-content: flex-end;
-  padding: 0rem 0.3rem 0;
-}
-.profile-page .sidebar .user h3,
-.profile-page .sidebar .management h3,
-.profile-page .sidebar .settings h3 {
+.brand-link {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
   font-size: 1.7rem;
-  margin: 1rem 0 2rem;
+  font-weight: bold;
   color: rgb(39, 39, 196);
-}
-.profile-page .sidebar .user h4,
-.profile-page .sidebar .management h4,
-.profile-page .sidebar .settings h4 {
-  font-size: 1.2rem;
-  opacity: 50%;
-  margin-block-end: 0.5em;
-}
-.profile-page .sidebar .user img,
-.profile-page .sidebar .management img,
-.profile-page .sidebar .settings img {
-  width: 6.25rem;
-  height: 6.25rem;
-  border: 2px solid rgb(39, 39, 196);
-  border-radius: 50%;
-}
-.profile-page .sidebar .user a,
-.profile-page .sidebar .management a,
-.profile-page .sidebar .settings a {
-  color: white;
   text-decoration: none;
-  margin-bottom: 1rem;
-  padding: 0.6rem 0 0.6rem;
-  font-size: 1.2rem;
-  border-bottom: 4px solid rgb(13, 13, 13);
-  border-right: 4px solid rgb(13, 13, 13);
-  transition: 0.4s;
+  font-family: "Sen", sans-serif;
+  z-index: 10;
 }
-.profile-page .sidebar .user a i,
-.profile-page .sidebar .management a i,
-.profile-page .sidebar .settings a i {
-  margin: 0 0.5rem 0 0;
+.brand-link:hover {
+  color: #1f1f99;
 }
-.profile-page .sidebar .user a:hover,
-.profile-page .sidebar .management a:hover,
-.profile-page .sidebar .settings a:hover {
-  color: rgb(39, 39, 196);
-  border-bottom: 4px solid rgb(39, 39, 196);
-  border-right: 4px solid rgb(39, 39, 196);
-}
-.profile-page .page-content {
-  border-radius: 15px;
-  background: rgb(13, 13, 13);
+
+.page-content {
+  background: linear-gradient(22deg, rgb(118, 133, 196) 27%, rgb(190, 213, 255) 58%, rgb(213, 219, 255) 100%);
   padding: 2rem;
-  color: black;
-}
-.profile-page .page-content .container .row.center {
-  display: flex;
-  flex-direction: column;
-}
-.profile-page .page-content .container hr {
-  margin: 1rem 0 1rem 0;
-}
-.profile-page .page-content .container .profile-form-container {
-  width: 100%;
-  padding: 2rem;
-}
-.profile-page .page-content .container .profile-form-container .profile-picture-form {
-  margin: 2.5rem 0 2rem 0;
-}
-.profile-page .page-content .container .profile-form-container .profile-picture-form .profile-picture-container {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-.profile-page .page-content .container .profile-form-container .profile-picture-form .profile-picture-container .profile-picture {
-  border-radius: 50%;
-  border: 3px solid rgb(185, 13, 99);
-  width: 9.375rem;
-  height: 9.375rem;
-}
-.profile-page .page-content .container .profile-form-container .profile-picture-form .upload-section {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  align-items: flex-start;
+  color: #2c2c2c;
 }
-.profile-page .page-content .container .profile-form-container .profile-picture-form .upload-section .file-input {
-  display: none;
-}
-.profile-page .page-content .container .profile-form-container .profile-picture-form .upload-section .file-label {
-  cursor: pointer;
-  color: rgb(13, 13, 13);
-  background-color: rgb(185, 13, 99);
-  padding: 0 1.6rem 0 1.6rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  width: -moz-fit-content;
-  width: fit-content;
-  border-radius: 8px;
-  height: 2.8125rem;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  /* background: $bg-dark;
-  color: $landing-gradient;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
 
-  &:hover {
-    background: $text-neon;
-  } */
+.container {
+  max-width: 800px;
+  width: 100%;
 }
-.profile-page .page-content .container .profile-form-container .profile-picture-form .upload-section .file-label:hover {
-  background-color: rgb(39, 39, 196);
-  transition: 0.3s ease;
-}
-.profile-page .page-content .container .profile-form-container .profile-picture-form .upload-section .upload-button {
-  cursor: pointer;
-  color: whitesmoke;
-  background-color: transparent;
-  padding: 0 1.6rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  width: -moz-fit-content;
-  width: fit-content;
-  border: 2.5px solid rgb(185, 13, 99);
-  border-radius: 8px;
-  height: 2.8125rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: color 1.2s ease;
-  /* background: $bg-dark;
-  color: white;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s;
 
-  &:hover {
-    background: darken($bg-dark, 10%);
-  } */
+.profile-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  transition: all 0.3s ease;
 }
-.profile-page .page-content .container .profile-form-container .profile-picture-form .upload-section .upload-button:hover {
+.profile-card .card-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
   color: rgb(39, 39, 196);
 }
-.profile-page .page-content .container .profile-form-container .profile-picture-form .upload-section .upload-button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
+.profile-card hr {
+  margin: 1.5rem 0;
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.profile-picture-form {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.profile-picture-form .profile-picture-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgb(39, 39, 196);
+  flex-shrink: 0;
+}
+.profile-picture-form .profile-picture-container img.profile-picture {
   width: 100%;
   height: 100%;
-  background-color: rgb(13, 13, 13);
-  z-index: -1;
-  transition: left 1.2s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.profile-page .page-content .container .profile-form-container .profile-picture-form .upload-section .upload-button:hover::before {
-  left: 0;
-}
-.profile-page .page-content .container .profile-form-container .profile-info-form {
+.profile-picture-form .upload-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 0.5rem;
 }
-.profile-page .page-content .container .profile-form-container .profile-info-form .form-row {
-  width: 50%;
-  margin-bottom: 1.5rem;
-}
-.profile-page .page-content .container .profile-form-container .profile-info-form .form-row .form-group {
-  flex: 1;
-}
-.profile-page .page-content .container .profile-form-container .profile-info-form .form-row .form-group label {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-  color: white;
-}
-.profile-page .page-content .container .profile-form-container .profile-info-form .form-row .form-group .input-text {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid rgb(39, 39, 196);
-  border-radius: 5px;
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
-}
-.profile-page .page-content .container .profile-form-container .profile-info-form .form-row .form-group .input-text:disabled {
-  background: rgb(172, 167, 167);
-}
-.profile-page .page-content .container .profile-form-container .profile-info-form .form-actions {
-  text-align: center;
-}
-.profile-page .page-content .container .profile-form-container .profile-info-form .form-actions .save-button {
-  /* background: $bg-dark;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background 0.3s;
-
-  &:hover {
-      background: darken($bg-dark, 10%);
-  } */
-}
-.profile-page .page-content .container .profile-form-container .password-change-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.profile-page .page-content .container .profile-form-container .password-change-form h3 {
+.profile-picture-form .upload-section .file-label {
+  font-weight: 500;
   color: rgb(185, 13, 99);
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 4rem;
-}
-.profile-page .page-content .container .profile-form-container .password-change-form .form-row {
-  width: 50%;
-  margin-bottom: 1.5rem;
-}
-.profile-page .page-content .container .profile-form-container .password-change-form .form-row .form-group {
-  flex: 1;
-}
-.profile-page .page-content .container .profile-form-container .password-change-form .form-row .form-group label {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-  color: white;
-}
-.profile-page .page-content .container .profile-form-container .password-change-form .form-row .form-group .input-text {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid rgb(39, 39, 196);
-  border-radius: 5px;
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
-}
-.profile-page .page-content .container .profile-form-container .password-change-form .form-row .form-group .input-text:disabled {
-  background: rgb(172, 167, 167);
-}
-.profile-page .page-content .container .profile-form-container .password-change-form .form-actions {
-  text-align: center;
-}
-.profile-page .page-content .container .profile-form-container .password-change-form .form-actions .save-button {
-  /* background: $bg-dark;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
   cursor: pointer;
-  transition: background 0.3s;
+}
+.profile-picture-form .upload-section .file-input {
+  display: none;
+}
+.profile-picture-form .upload-section .upload-button {
+  background: rgb(39, 39, 196);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.profile-picture-form .upload-section .upload-button:hover {
+  background: #1f1f99;
+}
 
-  &:hover {
-      background: darken($bg-dark, 10%);
-  } */
+.profile-info-form,
+.password-change-form {
+  margin-top: 2rem;
+}
+.profile-info-form .form-grid,
+.password-change-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 600px) {
+  .profile-info-form .form-grid,
+  .password-change-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.profile-info-form .form-group,
+.password-change-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+.profile-info-form .form-group label,
+.password-change-form .form-group label {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #2c2c2c;
+}
+.profile-info-form .form-group .input-text,
+.password-change-form .form-group .input-text {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+.profile-info-form .form-group .input-text:focus,
+.password-change-form .form-group .input-text:focus {
+  outline: none;
+  border-color: rgb(39, 39, 196);
+  box-shadow: 0 0 0 2px rgba(39, 39, 196, 0.1);
+}
+.profile-info-form .form-group .input-text:disabled,
+.password-change-form .form-group .input-text:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+}
+.profile-info-form .form-actions,
+.password-change-form .form-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.profile-info-form .form-actions .save-button,
+.password-change-form .form-actions .save-button {
+  background: rgb(185, 13, 99);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.profile-info-form .form-actions .save-button:hover,
+.password-change-form .form-actions .save-button:hover {
+  background: #890a4a;
+}
+.profile-info-form h3,
+.password-change-form h3 {
+  margin-bottom: 1rem;
+  color: rgb(39, 39, 196);
+}
+.profile-info-form .message,
+.password-change-form .message {
+  color: rgb(49, 204, 93);
+  font-weight: 500;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=main.css.map */

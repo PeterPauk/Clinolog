@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0a4f5afbb3.js" crossorigin="anonymous"></script>
+    <script defer src="js/app.js"></script>
+    <script>
+        function hideAlert() {
+            const alertBox = document.getElementById('alert');
+            if (alertBox) {
+                setTimeout(() => {
+                    alertBox.style.display = 'none';
+                }, 4000);
+            }
+        }
+    </script>
 </head>
 
-<body>
+<body onload="hideAlert()">
+    <?php
+    if (isset($_GET['logout']) && $_GET['logout'] === 'success') {
+        echo '<div id="alert" class="success-alert">Boli ste úspešne odhlásení!</div>';
+    }
+    ?>
     <header>
         <nav>
             <h2>Clinolog</h2>
